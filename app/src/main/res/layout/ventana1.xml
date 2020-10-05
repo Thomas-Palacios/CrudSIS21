@@ -69,7 +69,7 @@
           android:text="X"
           android:textAlignment="center"
           android:textSize="20dp"
-          android:background="@drawable/ic_circulo1"
+          android:background="@drawable/Circulo1"
           android:layout_marginRight="10dp" />
 
 </LinearLayout>
