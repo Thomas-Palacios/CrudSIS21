@@ -1,31 +1,27 @@
 package com.example.crud2020;
+
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-//import android.support.v7.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-import android.util.AndroidException;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+//import android.support.v7.app.AppCompatActivity;
+
 //Toco aplicar herencia de la clase AppCompatActivity para que no diera problemas el mètodo getLayoutInflater()
 //public class modal_Toast_Custom extends AppCompatActivity{
-public class modal_Toast_Custom extends AppCompatActivity{
+public class modal_Toast_Custom extends AppCompatActivity {
     Dialog myDialog;
     androidx.appcompat.app.AlertDialog.Builder dialogo;
     AlertDialog.Builder dialogo1;
@@ -76,7 +72,7 @@ public class modal_Toast_Custom extends AppCompatActivity{
         //dialogo = new androidx.appcompat.app.AlertDialog.Builder(context);
         dialogo = new androidx.appcompat.app.AlertDialog.Builder(context);
         //dialogo = new AlertDialog.Builder(context);
-        dialogo.setIcon(R.drawable.ic_borrar);
+        dialogo.setIcon(R.drawable.ic_23);
         dialogo.setTitle("Warning");
         dialogo.setMessage(mensaje);
         dialogo.setCancelable(true);
@@ -176,11 +172,11 @@ public class modal_Toast_Custom extends AppCompatActivity{
     public void dialogConfirm4(final Context context){
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         //builder.setIcon(android.R.drawable.ic_dialog_alert);
-        builder.setIcon(R.drawable.ic_close);
-        builder.setMessage(getString(R.string.mensaje));
+        builder.setIcon(R.drawable.ic_equis);
+        builder.setMessage("mensaje");
         builder.setCancelable(false);
-        builder.setNeutralButton(R.string.ok, null);
-        builder.setTitle(getString(R.string.error));
+        builder.setNeutralButton("ok", null);
+        builder.setTitle("error");
         builder.create().show();
     }
 

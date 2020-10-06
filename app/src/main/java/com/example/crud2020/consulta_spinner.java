@@ -12,10 +12,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.github.clans.fab.FloatingActionButton;
-import com.github.clans.fab.FloatingActionMenu;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class consulta_spinner extends AppCompatActivity {
+public class consulta_spinner<FloatingActionMenu> extends AppCompatActivity {
 
     private Spinner sp_options;
     private TextView tv_cod, tv_descripcion, tv_precio;
@@ -27,7 +26,7 @@ public class consulta_spinner extends AppCompatActivity {
     Dto datos = new Dto();
 
     private FloatingActionMenu menu;
-    private FloatingActionButton item1, item2, item3;
+    // private FloatingActionButton item1, item2, item3;
 
     modal_Toast_Custom modal = new modal_Toast_Custom();
 
@@ -36,7 +35,7 @@ public class consulta_spinner extends AppCompatActivity {
 
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             new android.app.AlertDialog.Builder(this)
-                    .setIcon(R.drawable.ic_close)
+                    .setIcon(R.drawable.ic_equis)
                     .setTitle("Warning")
                     .setMessage("¿Realmente desea salir?")
                     .setNegativeButton(android.R.string.cancel, null)
@@ -58,7 +57,6 @@ public class consulta_spinner extends AppCompatActivity {
     }
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +68,7 @@ public class consulta_spinner extends AppCompatActivity {
         tv_descripcion = (TextView) findViewById(R.id.tv_descripcion);
         tv_precio = (TextView) findViewById(R.id.tv_precio);
 
-        menu = findViewById(R.id.menu_fab);
+        /*menu = findViewById(R.id.fab);
         item1 = findViewById(R.id.item1);
         item2 = findViewById(R.id.item2);
         item3 = findViewById(R.id.item3);
@@ -79,9 +77,9 @@ public class consulta_spinner extends AppCompatActivity {
             @Override
             public void onMenuToggle(boolean opened) {
                 if (opened) {
-                    Toast.makeText(consulta_spinner.this, "Menu Abierto", Toast.LENGTH_SHORT);
+                    Toast.makeText(ConsultaSpinner.this, "Menu Abierto", Toast.LENGTH_SHORT);
                 } else {
-                    Toast.makeText(consulta_spinner.this, "Menu Cerrado", Toast.LENGTH_SHORT);
+                    Toast.makeText(ConsultaSpinner.this, "Menu Cerrado", Toast.LENGTH_SHORT);
                 }
             }
         });
@@ -103,14 +101,14 @@ public class consulta_spinner extends AppCompatActivity {
                     startActivity(intent);
 
                    */
-                modal.dialogConfirmCustom2(consulta_spinner.this);
+                /*modal.dialogConfirmCustom2(ConsultaSpinner.this);
             }
         });
 
         item2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                modal.dialogAbout(consulta_spinner.this);
+                modal.dialogAbout(ConsultaSpinner.this);
             }
         });
 
@@ -119,7 +117,7 @@ public class consulta_spinner extends AppCompatActivity {
             public void onClick(View view) {
                 finish();
             }
-        });
+        }); */
 
 
         //conexion. obtenerListaArticulos(),
@@ -159,7 +157,6 @@ public class consulta_spinner extends AppCompatActivity {
 
         });
 
+
     }
 }
-
-

@@ -2,8 +2,24 @@
       xmlns:app="http://schemas.android.com/apk/res-auto"
       xmlns:tools="http://schemas.android.com/tools"
       tools:context="com.example.crud2020.MainActivity">
-    <item android:id="@+id/action_settings"
-          android:title="@string/action_settings"
-          android:orderInCategory="100"
-          app:showAsAction="never"/>
+    <item
+            android:id="@+id/action_limpiar"
+            android:orderInCategory="2"
+            android:title="Limpiar"
+            app:showAsAction="never" />
+    <item
+            android:id="@+id/action_listaArticulos"
+            android:orderInCategory="2"
+            android:title="Listar Articulo"
+            app:showAsAction="never" />
+    <item
+            android:id="@+id/action_listaArticulos1"
+            android:orderInCategory="2"
+            android:title="Listar Articulo 1"
+            app:showAsAction="never" />
+    <item
+            android:id="@+id/action_recyclerview"
+            android:orderInCategory="2"
+            android:title="Datos de los Productos Registrados"
+            app:showAsAction="never" />
 </menu>

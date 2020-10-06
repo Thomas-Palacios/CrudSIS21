@@ -23,7 +23,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity<FABToolbarLayout> extends AppCompatActivity {
 
     private EditText et_codigo, et_descripcion, et_precio;
     private Button btn_guardar, btn_consultar1, btn_consultar2, btn_eliminar, btn_actualizar;
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             new android.app.AlertDialog.Builder(this)
-                    .setIcon(R.drawable.ic_close)
+                    .setIcon(R.drawable.ic_equis)
                     .setTitle("Warning")
                     .setMessage("¿Realmente desea salir?")
                     .setNegativeButton(android.R.string.cancel, null)
@@ -71,12 +71,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_close));
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_equis));
         toolbar.setTitleTextColor(getResources().getColor(R.color.mycolor1));
         toolbar.setTitleMargin(0, 0, 0, 0);
         toolbar.setSubtitle("CRUD SQLite-2020");
         toolbar.setSubtitleTextColor(getResources().getColor(R.color.mycolor));
-        toolbar.setTitle("Adonis Bautista SIS21A");
+        toolbar.setTitle("Thomas Betzabe Palacios Trejo SIS21B");
         setSupportActionBar(toolbar);
 
         //y esto para panda/la completa (oculta incluso la barra de estado)
@@ -100,12 +100,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });*/
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        morph = findViewById(R.id.fabtoolbar);
+       /*FloatingActionButton fab = findViewById(R.id.fab);
+        morph = findViewById(R.id.fab);
 
         View uno, dos , tres, cuatro, cinco, seis;
 
-        uno = findViewById(R.id.uno);
+        /* uno = findViewById(R.id.uno);
         dos = findViewById(R.id.dos);
         tres = findViewById(R.id.tres);
         cuatro = findViewById(R.id.cuatro);
@@ -118,10 +118,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tres.setOnClickListener(this);
         cuatro.setOnClickListener(this);
         cinco.setOnClickListener(this);
-        seis.setOnClickListener(this);
-
-
-
+        seis.setOnClickListener(this); */
 
 
         et_codigo = (EditText) findViewById(R.id.et_codigo);
@@ -162,7 +159,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void confirmacion() {
         String mensaje = "¿Realmente desea salir?";
         dialogo = new AlertDialog.Builder(MainActivity.this);
-        dialogo.setIcon(R.drawable.ic_close);
+        dialogo.setIcon(R.drawable.ic_equis);
         dialogo.setTitle("Warning");
         dialogo.setMessage(mensaje);
         dialogo.setCancelable(false);
@@ -275,7 +272,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         et_codigo.requestFocus();
     }
 
-    public void consultaporcodigo(View v) {
+    public void consultarporcodigo(View v) {
         if (et_codigo.getText().toString().length() == 0) {
             et_codigo.setError("Campo obligatorio");
             inputEt = false;
@@ -302,7 +299,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public void consultapordescripcion(View v) {
+    public void consultarpordescripcion(View v) {
         if (et_descripcion.getText().toString().length() == 0) {
             et_descripcion.setError("Campo obligatorio");
             inputEd = false;
@@ -378,5 +375,66 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         }
+    }
+
+    public void showToast(String message){
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(R.layout.toast_layout, (ViewGroup) findViewById(R.id.toast_root));
+
+        TextView toastText = layout.findViewById(R.id.toast_text);
+        ImageView toastImage = layout.findViewById(R.id.toast_image);
+
+        toastText.setText(message);
+
+        toastImage.setImageResource(R.drawable.ic_23);
+
+        Toast toast = new Toast(getApplicationContext());
+        toast.setGravity(Gravity.CENTER, 0,0);
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(layout);
+        toast.show();
+      }
+    /*@Override
+    public void onClick(View view) {
+        if (view.getId() == R.id.fab){
+            morph.show();
+        }
+        switch (view.getId()){
+
+            case R.id.uno:
+                showToast("Acciones pra guardar en BD");
+                alta( null);
+                morph.hide();
+                break;
+            case R.id.dos:
+                //showToast("Clic boton 1");
+                ventanas.Search(MainActivity.this);
+                morph.hide();
+                break;
+            case R.id.tres:
+                showToast("Acciones buscar descripcion");
+                consultapordescripcion(null);
+                morph.hide();
+                break;
+            case R.id.cuatro:
+                showToast("Acciones editar");
+                modificacion(null);
+                morph.hide();
+                break;
+            case R.id.cinco:
+                showToast("para borrar");
+                bajaporcodigo(null);
+                morph.hide();
+
+                break;
+            case R.id.seis:
+                //showToast("");
+                morph.hide();
+                break;
+
+            default:
+                morph.hide();
+                break;
+        } */
     }
 
